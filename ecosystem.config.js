@@ -28,7 +28,7 @@ module.exports = {
       host: '140.143.187.20',
       ref: 'origin/master',
       repo: 'git@github.com:zifenli/latte.git',
-      path: '/home/ubuntu/projects/',
+      path: '/home/ubuntu/projects/latte/',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
