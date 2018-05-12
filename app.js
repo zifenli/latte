@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
     }
 })
 
-io.adapter(ioRedis({host: '127.0.0.1', port: 6379}));
+io.adapter(ioRedis({host: '140.143.187.20', port: 6379}));
 
 server.listen(PORT, '0.0.0.0', () => {
     console.log('Pudding server listening on port ' + PORT);
