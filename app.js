@@ -23,16 +23,16 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/static/index.html');
 })
 
-app.post('/test/', (req, res) => {
+app.post('/api/data/proxy/', (req, res) => {
     const channel = req.body.channel;
 
+    pub.publish(channel, JSON.stringify(req.body));
+    
     res.json({
         status: 200,
         channel: channel,
         data: JSON.stringify(req.body)
     });
-
-    pub.publish(channel, JSON.stringify(req.body));
 })
 
 sub.on('subscribe', (channel, count) => {
