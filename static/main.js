@@ -4,7 +4,7 @@
     var txt = $(':text');
     var p = $('.j-flag');
     var socket = io.connect('http://pusher.qcloudtest.cn/?channelId=' + CHANNEL);
-    var url = 'http://qcloudtest.cn/api/async/services/requests/';
+    var url = '/api/data/proxy/';
 
     btn.click(function (event) {
         event.preventDefault();
@@ -22,6 +22,6 @@
     })
 
     socket.on('message', function(msg) {
-        p.html('<h3>channel: '+ msg.channel +'</h3><h3>content: '+ msg.value +'</h3>');  
+        p.html('<h3>channel: '+ msg.channel +'</h3><h3>content: '+ msg +'</h3>');  
     })
 }());
