@@ -3,7 +3,7 @@
     var btn = $('#btn');
     var txt = $(':text');
     var p = $('.j-flag');
-    var socket = io.connect('http://140.143.187.20:3333/?channelId=' + CHANNEL);
+    var socket = io.connect('http://pusher.qcloudtest.cn/?channelId=' + CHANNEL);
     var url = 'http://qcloudtest.cn/api/async/services/requests/';
 
     btn.click(function (event) {
