@@ -22,6 +22,7 @@
     })
 
     socket.on('message', function(msg) {
-        p.html('<h3>channel: '+ msg.channel +'</h3><h3>content: '+ msg.msg.url +'</h3>');  
+        var msg = msg || {};
+        p.html('<h3>channel: '+ msg.channel +'</h3><h3>content: '+ msg.url +'</h3>');  
     })
 }());
