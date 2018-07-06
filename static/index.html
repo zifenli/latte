@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>index</title>
-    </head>
-    <body>
-        <form>
-            <input type="text" name="user">
-            <button id='btn'>发送</button>
-            <div class="j-flag">
+<head>
+  <title>LATTE PUSHER</title>
+  <link rel="icon" type="image/x-icon" href="/static/images/latte.jpeg" />
+  <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="/static/lib/jsoneditor.min.css" type="text/css">
+  <link rel="stylesheet" href="/static/lib/jsonEditor.darktheme.css">
+</head>
+<body>
 
-            </div>
-        </form>
-    </body>
-    <script src="/static/jquery.min.js"></script>
-    <script src="/static/socket.io.js"></script>
-    <script src="/static/main.js"></script>
+<div class="row">
+  <div class="col-md-7">
+    <div id="jsoneditor" style="width:100%; height: 800px;"></div>
+  </div>
+  <div class="col-md-5">
+    <form>
+    <input type="text" name="user">
+    <button id='btn'>发送</button>
+    <div class="j-flag">
+
+    </div>
+  </form></div>
+</div>
+
+</body>
+<script src="/static/lib/jquery.min.js"></script>
+<script src="/static/lib/bootstrap.min.js"></script>
+<script src="/static/lib/jsoneditor.min.js"></script>
+<script src="/static/lib/socket.io.js"></script>
+<script src="/static/js/jsonEditor.js"></script>
+<script src="/static/js/main.js"></script>
 </html>

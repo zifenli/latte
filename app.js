@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const socketIo = require('socket.io');
-const redis  = require('redis');
 const ioRedis = require('socket.io-redis');
+const sub = require('./server/redis').sub;
+const routes = require('./routes');
 
 const PORT = process.env.PORT || 3333;
 const channelSet = {};
@@ -11,33 +12,12 @@ const channelSet = {};
 const app = express();
 const server = http.Server(app);
 const io = socketIo(server);
-const pub = redis.createClient();
-const sub = redis.createClient();
 
 app.set('port', PORT);
 app.use('/static', express.static('static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/static/index.html');
-})
-
-app.post('/api/data/proxy/', (req, res) => {
-    const channel = req.body.channel;
-
-    pub.publish(channel, JSON.stringify(req.body));
-    
-    res.json({
-        status: 200,
-        channel: channel,
-        data: JSON.stringify(req.body)
-    });
-})
-
-sub.on('subscribe', (channel, count) => {
-    console.log(channel + ' subscribe in');
-})
+app.use('/', routes);
 
 sub.on('message', (channel, message) => {
     io.to(channel).emit('message', JSON.parse(message));

@@ -1,5 +1,6 @@
 (function () {
-    var CHANNEL = 'pudding';
+    // var CHANNEL = 'pudding';
+    var CHANNEL = 'TEST';
     var btn = $('#btn');
     var txt = $(':text');
     var div = $('.j-flag');
@@ -30,6 +31,7 @@
         }
         div.html(html);
     });
+    console.log(editor.get());
     // socket.on('message', function(msg) {
     //     var msg = msg || {};
     //     p.html('<h3>channel: '+ msg.channel +'</h3><h3>content: '+ msg.url +'</h3>');  
