@@ -1,5 +1,6 @@
 (function(){
   var container = document.getElementById('jsoneditor');
+  var dataContainer = document.getElementById('dataContainer');
   var options = {
     modes: ['text', 'code', 'tree', 'form', 'view'],
     mode: 'code',
@@ -14,5 +15,15 @@
     'string': 'Hello World'
   };
   window.editor = new JSONEditor(container, options, json);
+  window.dataContainer = new JSONEditor(dataContainer, {
+    mode: 'code',
+    modes: ['code'],
+    ace: ace,
+    onEditable: function (node) {
+      if (!node.path) {
+        return false;
+      }
+    },
+  });
 
 }());
